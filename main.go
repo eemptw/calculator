@@ -135,23 +135,28 @@ func main() {
 	if isRoman {
 		a, err = parseRomanNumber(parts[0])
 		if err != nil {
-			fmt.Println(err)
-			return
+		 	fmt.Println(err)
+		 	return
 		}
 		b, err = parseRomanNumber(parts[2])
 		if err != nil {
-			fmt.Println(err)
-			return
+		 	fmt.Println(err)
+		 	return
 		}
-	} else {
-		a, err = parseArabicNumber(parts[2])
+	   } else {
+		a, err = parseArabicNumber(parts[0]) 
+		if err != nil {
+		 	fmt.Println(err)
+		 	return
+		}
+		b, err = parseArabicNumber(parts[2])  
 		if err != nil {
 			fmt.Println(err)
-			return
+		 	return
 		}
 	}
-	if (a < 0 || a > 10) || (b < 0 || b > 10) {
-		fmt.Println("Ошибка: числа должны быть от 0 до 10 включительно")
+	if (a < 1 || a > 10) || (b < 1 || b > 10) {
+		fmt.Println("Ошибка: числа должны быть от 1 до 10 включительно")
         return
 	}
 
@@ -168,6 +173,6 @@ func main() {
 		}
 		fmt.Println("Результат:", romanResult)
 	} else {
-		fmt.Println("Резултат:", result)
+		fmt.Println("Результат:", result)
 	}
 }
